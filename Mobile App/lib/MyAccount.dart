@@ -1,41 +1,14 @@
 import 'package:flutter/material.dart';
-import 'Homepage.dart';
-import 'EditProfile.dart';
-import 'Friends.dart';
-import 'MyActivity.dart';
-import 'MyAccount.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
-      home: const MyFriendScreen(title: 'My First App'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyAccount extends StatefulWidget {
+  const MyAccount({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyAccount> createState() => _MyAccount();
 }
 
-
-
-class _MyHomePageState extends State<MyHomePage> {
+class _MyAccount extends State<MyAccount> {
   int _currentIndex = 0;
 
   @override
@@ -52,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Transform.translate(
                     offset: const Offset(0.0, -230.0),
                     child: const Text(
-                      "Setting",
+                      "Accounts",
                       style: TextStyle(
                         fontFamily: 'Roboto',
                         fontSize: 24,
@@ -90,9 +63,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           Icons.account_circle,
                           color: Colors.white,
                         ),
-                        SizedBox(width: 20),
+                        SizedBox(width: 10),
                         Text(
-                          "Account",
+                          "Edit Profile",
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ],
@@ -127,12 +100,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(
-                          Icons.info,
+                          Icons.privacy_tip,
                           color: Colors.white,
                         ),
                         SizedBox(width: 10),
                         Text(
-                          "Information",
+                          "Privacy",
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ],
@@ -167,12 +140,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(
-                          Icons.help,
+                          Icons.email,
                           color: Colors.white,
                         ),
                         SizedBox(width: 10),
                         Text(
-                          "Help",
+                          "Email Address",
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ],
@@ -186,53 +159,61 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-        ],
-      ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          backgroundColor: Colors.yellow.shade50,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Container(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: const Color(0xFF8F9E91),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xFF8F9E91),
-                      spreadRadius: 5,
-                      blurRadius: 10,
-                      offset: Offset(10, 0),
+          Positioned(
+            left: 50,
+            bottom: 270,
+            child: Container(
+              width: 300,
+              child: ElevatedButton(
+                onPressed: () {
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.cancel,
+                      color: Colors.white,
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      "TERMINATE ACCOUNT",
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ],
                 ),
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/light2.jpeg',
-                    width: 54,
-                    height: 44,
-                    fit: BoxFit.cover,
-                  ),
-                ),
               ),
-              label: '',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-            ),
-          ],
-        ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.group),
+            label: 'Community',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+      ),
     );
   }
 }
-
