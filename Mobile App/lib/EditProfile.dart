@@ -91,7 +91,6 @@ class _EditProfileActivityState extends State<EditProfileActivity> {
               ),
             ),
           ),
-          // ... (other Positioned widgets for buttons)
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

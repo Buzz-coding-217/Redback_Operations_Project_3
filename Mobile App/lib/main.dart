@@ -4,6 +4,7 @@ import 'EditProfile.dart';
 import 'Friends.dart';
 import 'MyActivity.dart';
 import 'MyAccount.dart';
+import 'Workout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const MyFriendScreen(title: 'My First App'),
+      home: const Workout(title: 'My First App'),
     );
   }
 }

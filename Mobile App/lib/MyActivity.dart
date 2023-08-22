@@ -39,7 +39,6 @@ class _MyActivityState extends State<MyActivity> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Walking button
                       Container(
                         width: 320,
                         child: ElevatedButton(
@@ -47,8 +46,7 @@ class _MyActivityState extends State<MyActivity> {
                           child: const Text("Walking", style: TextStyle(fontSize: 18)),
                         ),
                       ),
-                      SizedBox(height: 10), // Add spacing between buttons
-                      // Running button
+                      SizedBox(height: 10),
                       Container(
                         width: 320,
                         child: ElevatedButton(
@@ -56,7 +54,7 @@ class _MyActivityState extends State<MyActivity> {
                           child: const Text("Running", style: TextStyle(fontSize: 18)),
                         ),
                       ),
-                      SizedBox(height: 10), // Add spacing between buttons
+                      SizedBox(height: 10),
                       // Yoga button
                       Container(
                         width: 320,
@@ -65,7 +63,7 @@ class _MyActivityState extends State<MyActivity> {
                           child: const Text("Yoga", style: TextStyle(fontSize: 18)),
                         ),
                       ),
-                      SizedBox(height: 10), // Add spacing between buttons
+                      SizedBox(height: 10),
                       // Sports button
                       Container(
                         width: 320,
@@ -74,7 +72,7 @@ class _MyActivityState extends State<MyActivity> {
                           child: const Text("Sports", style: TextStyle(fontSize: 18)),
                         ),
                       ),
-                      SizedBox(height: 10), // Add spacing between buttons
+                      SizedBox(height: 10),
                       // Aerobic button
                       Container(
                         width: 320,
@@ -83,7 +81,7 @@ class _MyActivityState extends State<MyActivity> {
                           child: const Text("Aerobic", style: TextStyle(fontSize: 18)),
                         ),
                       ),
-                      SizedBox(height: 10), // Add spacing between buttons
+                      SizedBox(height: 10),
                       // Jumba button
                       Container(
                         width: 320,
@@ -98,7 +96,6 @@ class _MyActivityState extends State<MyActivity> {
               ),
             ),
           ),
-          // ... (other Positioned widgets for buttons)
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

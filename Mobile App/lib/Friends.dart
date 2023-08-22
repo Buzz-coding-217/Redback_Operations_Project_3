@@ -9,9 +9,9 @@ class MyFriendScreen extends StatefulWidget {
 }
 
 class _MyFriendScreenState extends State<MyFriendScreen> {
-  int _currentIndex = 1; // Set the current index to 1 for the "Friends" screen
-  int number_friends = 6; // Example value for the number of friends
-  String _sortByValue = "Ascending"; // Default sorting option
+  int _currentIndex = 1;
+  int number_friends = 6;
+  String _sortByValue = "Ascending";
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,6 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  // Align the text to the left
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 16),
                     child: Row(
@@ -127,7 +126,7 @@ class TransparentProfileButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.94, // 70% width of the screen
+      width: MediaQuery.of(context).size.width * 0.94,
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.3), // Transparent white
         borderRadius: BorderRadius.circular(15),
@@ -137,7 +136,7 @@ class TransparentProfileButton extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 30,
-            backgroundImage: AssetImage('assets/profile_image.jpg'), // Replace with actual image
+            backgroundImage: AssetImage('assets/profile_image.jpg'),
           ),
           SizedBox(width: 12),
           Expanded(
@@ -168,8 +167,8 @@ class TransparentProfileButton extends StatelessWidget {
             },
             child: Text("Unfriend"),
             style: ElevatedButton.styleFrom(
-              primary: Colors.red, // Set the button color
-              onPrimary: Colors.white, // Set the text color
+              primary: Colors.red,
+              onPrimary: Colors.white,
             ),
           ),
         ],

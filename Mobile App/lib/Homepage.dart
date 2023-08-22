@@ -33,7 +33,6 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        // Implement 'Home' button logic here
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFF8F9E91),
@@ -55,7 +54,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        // Implement 'Activities' button logic here
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFF8F9E91),
@@ -77,7 +75,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        // Implement 'Profile' button logic here
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFF8F9E91),
@@ -105,7 +102,6 @@ class _HomePageState extends State<HomePage> {
                           width: 300,
                           child: ElevatedButton(
                             onPressed: () {
-                              // Implement button logic
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Colors.black,
@@ -132,52 +128,62 @@ class _HomePageState extends State<HomePage> {
               left: 20,
               right: 20,
               child: SizedBox(
-                height: 450, // Set the desired height
+                height: 450,
                 child: Container(
-                  color: Colors.brown, // Brown background color
-                  padding: EdgeInsets.all(20), // Adjust padding as needed
+                  color: Colors.brown,
+                  padding: EdgeInsets.all(20),
                   child: Column(
                     children: [
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(width: 10), // Add space between elements
-                          Text(
-                            '${totalKilometer.toStringAsFixed(2)}',
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                          SizedBox(width: 10),
+                          Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Text(
+                              '${totalKilometer.toStringAsFixed(2)}',
+                              style: TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                          Text(
-                            'Total Kilometers',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 20.0),
+                            child: Text(
+                              'Total Kilometers',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 20), // Add space between rows
+                      SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             children: [
                               Container(
-                                width: 120,
-                                height: 80,
-                                color: Colors.green, // Green background color
-                                padding: EdgeInsets.all(10), // Adjust padding as needed
+                                width: 150,
+                                height: 110,
+                                color: Colors.green,
+                                padding: EdgeInsets.all(10),
                                 child: Column(
                                   children: [
-                                    Text(
-                                      '$avgKcal',
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        '$avgKcal',
+                                        style: TextStyle(
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                     Text(
@@ -190,20 +196,23 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 10), // Add space between elements
+                              SizedBox(height: 10),
                               Container(
-                                width: 120,
-                                height: 80,
-                                color: Colors.green, // Green background color
-                                padding: EdgeInsets.all(10), // Adjust padding as needed
+                                width: 150,
+                                height: 110,
+                                color: Colors.green,
+                                padding: EdgeInsets.all(10),
                                 child: Column(
                                   children: [
-                                    Text(
-                                      '$totalRuns',
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        '$totalRuns',
+                                        style: TextStyle(
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                     Text(
@@ -221,18 +230,21 @@ class _HomePageState extends State<HomePage> {
                           Column(
                             children: [
                               Container(
-                                width: 120,
-                                height: 80,
-                                color: Colors.green, // Green background color
-                                padding: EdgeInsets.all(10), // Adjust padding as needed
+                                width: 150,
+                                height: 110,
+                                color: Colors.green,
+                                padding: EdgeInsets.all(10),
                                 child: Column(
                                   children: [
-                                    Text(
-                                      '${avgTime.toStringAsFixed(2)}',
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        '${avgTime.toStringAsFixed(2)}',
+                                        style: TextStyle(
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                     Text(
@@ -245,20 +257,23 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 10), // Add space between elements
+                              SizedBox(height: 10),
                               Container(
-                                width: 120,
-                                height: 80,
-                                color: Colors.green, // Green background color
-                                padding: EdgeInsets.all(10), // Adjust padding as needed
+                                width: 150,
+                                height: 110,
+                                color: Colors.green,
+                                padding: EdgeInsets.all(10),
                                 child: Column(
                                   children: [
-                                    Text(
-                                      '${avgPace.toStringAsFixed(2)}',
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        '${avgPace.toStringAsFixed(2)}',
+                                        style: TextStyle(
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                     ),
                                     Text(
