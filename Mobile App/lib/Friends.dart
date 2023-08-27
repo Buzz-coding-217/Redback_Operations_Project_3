@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'Homepage.dart';
+import 'main.dart';
+import 'MyActivity.dart';
 
 class MyFriendScreen extends StatefulWidget {
   const MyFriendScreen({Key? key, required this.title}) : super(key: key);
@@ -16,6 +19,15 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF8F9E91), // Set the background color
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop(); // This will navigate back.
+          },
+        ),
+      ),
       body: Stack(
         children: [
           Container(
@@ -24,7 +36,7 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 70),
+                  const SizedBox(height: 0),
                   Container(
                     width: double.infinity,
                     child: const Text(
@@ -92,6 +104,32 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
+            switch (_currentIndex) {
+              case 0:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(title: "HomePage"),
+                  ),
+                );
+                break;
+              case 1:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyActivity(title: "MyActivity"),
+                  ),
+                );
+                break;
+              case 2:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Setting(title: "MyHomePage"),
+                  ),
+                );
+                break;
+            }
           });
         },
         items: [
@@ -100,8 +138,8 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            label: 'Community',
+            icon: Icon(Icons.accessibility),
+            label: 'Activities',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),

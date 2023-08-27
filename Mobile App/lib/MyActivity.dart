@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
+import 'Homepage.dart';
 
 class MyActivity extends StatefulWidget {
   const MyActivity({Key? key, required this.title}) : super(key: key);
@@ -103,6 +105,32 @@ class _MyActivityState extends State<MyActivity> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
+            switch (_currentIndex) {
+              case 0:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(title: "HomePage"),
+                  ),
+                );
+                break;
+              case 1:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyActivity(title: "MyActivity"),
+                  ),
+                );
+                break;
+              case 2:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Setting(title: "MyHomePage"),
+                  ),
+                );
+                break;
+            }
           });
         },
         items: [
@@ -111,8 +139,8 @@ class _MyActivityState extends State<MyActivity> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            label: 'Community',
+            icon: Icon(Icons.accessibility),
+            label: 'Activities',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),

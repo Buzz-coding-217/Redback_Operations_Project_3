@@ -112,7 +112,6 @@ class _WorkoutState extends State<Workout> {
                           width: 300,
                           child: ElevatedButton(
                             onPressed: () {
-                              // Implement button logic
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Colors.black,
@@ -154,8 +153,8 @@ class _WorkoutState extends State<Workout> {
             label: 'Activities',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),
@@ -197,7 +196,7 @@ class WorkoutMetricBox extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.all(8),
-                child: Center( // Center the value
+                child: Center(
                   child: Text(
                     value,
                     style: TextStyle(
@@ -215,8 +214,3 @@ class WorkoutMetricBox extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

@@ -5,6 +5,7 @@ import 'Friends.dart';
 import 'MyActivity.dart';
 import 'MyAccount.dart';
 import 'Workout.dart';
+import 'mapsample.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,22 +22,22 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const Workout(title: 'My First App'),
+      home: HomePage(title: 'sdf',),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class Setting extends StatefulWidget {
+  const Setting({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Setting> createState() => _Setting();
 }
 
 
 
-class _MyHomePageState extends State<MyHomePage> {
+class _Setting extends State<Setting> {
   int _currentIndex = 0;
 
   @override
@@ -74,6 +75,12 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 300,
               child: ElevatedButton(
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyAccount(title:'Profile'),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
@@ -194,6 +201,32 @@ class _MyHomePageState extends State<MyHomePage> {
           onTap: (index) {
             setState(() {
               _currentIndex = index;
+              switch (_currentIndex) {
+                case 0:
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(title: "HomePage"),
+                    ),
+                  );
+                  break;
+                case 1:
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyActivity(title: "MyActivity"),
+                    ),
+                  );
+                  break;
+                case 2:
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Setting(title: "MyHomePage"),
+                    ),
+                  );
+                  break;
+              }
             });
           },
           backgroundColor: Colors.yellow.shade50,

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'EditProfile.dart';
+import 'MyActivity.dart';
+import 'main.dart';
+import 'Homepage.dart';
 
 class MyAccount extends StatefulWidget {
   const MyAccount({super.key, required this.title});
@@ -14,6 +18,15 @@ class _MyAccount extends State<MyAccount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF8F9E91), // Set the background color
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop(); // This will navigate back.
+          },
+        ),
+      ),
       body: Stack(
         children: [
           Container(
@@ -23,7 +36,7 @@ class _MyAccount extends State<MyAccount> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Transform.translate(
-                    offset: const Offset(0.0, -230.0),
+                    offset: const Offset(0.0, -260.0),
                     child: const Text(
                       "Accounts",
                       style: TextStyle(
@@ -46,6 +59,12 @@ class _MyAccount extends State<MyAccount> {
               width: 300,
               child: ElevatedButton(
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditProfileActivity(title:'Profile'),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,
@@ -197,6 +216,32 @@ class _MyAccount extends State<MyAccount> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
+            switch (_currentIndex) {
+              case 0:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(title: "HomePage"),
+                  ),
+                );
+                break;
+              case 1:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyActivity(title: "MyActivity"),
+                  ),
+                );
+                break;
+              case 2:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Setting(title: "MyHomePage"),
+                  ),
+                );
+                break;
+            }
           });
         },
         items: [
@@ -205,8 +250,8 @@ class _MyAccount extends State<MyAccount> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.group),
-            label: 'Community',
+            icon: Icon(Icons.accessibility),
+            label: 'Activities',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),

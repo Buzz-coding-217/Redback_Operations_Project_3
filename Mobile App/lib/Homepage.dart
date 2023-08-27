@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/Friends.dart';
+import 'package:mobile_app/MyAccount.dart';
+import 'EditProfile.dart';
+import 'MyActivity.dart';
+import 'main.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
@@ -54,6 +59,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyFriendScreen(title:'Profile'),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFF8F9E91),
@@ -62,12 +73,13 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       child: Text(
-                        "Activities",
+                        "Friends",
                         style: TextStyle(
                           color: Colors.white,
                         ),
                       ),
                     ),
+
                     Container(
                       width: 1,
                       height: 40,
@@ -75,6 +87,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyAccount(title:'Profile'),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFF8F9E91),
@@ -83,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       child: Text(
-                        "Profile",
+                        "Account",
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -298,28 +316,55 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.accessibility),
-            label: 'Activities',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-      ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+              switch (_currentIndex) {
+                case 0:
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(title: "HomePage"),
+                    ),
+                  );
+                  break;
+                case 1:
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyActivity(title: "MyActivity"),
+                    ),
+                  );
+                  break;
+                case 2:
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Setting(title: "MyHomePage"),
+                    ),
+                  );
+                  break;
+              }
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.accessibility),
+              label: 'Activities',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+        )
+
     );
   }
 }
