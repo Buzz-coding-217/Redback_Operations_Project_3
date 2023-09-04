@@ -109,7 +109,7 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomePage(title: "HomePage"),
+                    builder: (context) => HomePage(title: ""),
                   ),
                 );
                 break;
@@ -117,7 +117,7 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MyActivity(title: "MyActivity"),
+                    builder: (context) => const MyFriendScreen(title: ''),
                   ),
                 );
                 break;
@@ -125,7 +125,7 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Setting(title: "MyHomePage"),
+                    builder: (context) => Setting(title: "Settings"),
                   ),
                 );
                 break;
@@ -138,8 +138,8 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.accessibility),
-            label: 'Activities',
+            icon: Icon(Icons.group),
+            label: 'Friends',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
