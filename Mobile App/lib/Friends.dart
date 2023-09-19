@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Homepage.dart';
 import 'main.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'MyActivity.dart';
 
 class MyFriendScreen extends StatefulWidget {
@@ -11,10 +13,56 @@ class MyFriendScreen extends StatefulWidget {
   State<MyFriendScreen> createState() => _MyFriendScreenState();
 }
 
+class Friend {
+  final String name;
+  final String mutualFriends;
+
+  Friend({
+    required this.name,
+    required this.mutualFriends,
+  });
+
+  factory Friend.fromJson(Map<String, dynamic> json) {
+    return Friend(
+      name: json['name'],
+      mutualFriends: "2",
+    );
+  }
+}
+
 class _MyFriendScreenState extends State<MyFriendScreen> {
   int _currentIndex = 1;
+  List<Friend> friends = [];
   int number_friends = 6;
   String _sortByValue = "Ascending";
+
+  Future<void> fetchFriends() async {
+    final response = await http.get(Uri.parse('http://10.141.9.203:3000/api/data'));
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = json.decode(response.body);
+
+      final List<dynamic> friendsData = data['friends'];
+
+      final List<Friend> parsedFriends = friendsData.map((friendData) {
+        return Friend.fromJson(friendData);
+      }).toList();
+
+      setState(() {
+        friends = parsedFriends;
+      });
+      print(friends);
+    } else {
+      throw Exception('Failed to load friends');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchFriends();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +102,7 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
                     child: Row(
                       children: [
                         Text(
-                          "Total Friends: $number_friends",
+                          "Total Friends: ${friends.length}",
                           style: TextStyle(
                             fontSize: 10,
                             color: Colors.white,
@@ -89,9 +137,13 @@ class _MyFriendScreenState extends State<MyFriendScreen> {
                       ],
                     ),
                   ),
-                  TransparentProfileButton(
-                    name: "Shravel Sharma",
-                    mutualFriends: "3 mutual friends",
+                  Column(
+                    children: friends.map((friend) {
+                      return TransparentProfileButton(
+                        name: friend.name,
+                        mutualFriends: friend.mutualFriends,
+                      );
+                    }).toList(),
                   ),
                 ],
               ),

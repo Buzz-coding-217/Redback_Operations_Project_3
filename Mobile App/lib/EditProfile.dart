@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'Homepage.dart';
 import 'main.dart';
 import 'MyActivity.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class EditProfileActivity extends StatefulWidget {
   const EditProfileActivity({Key? key, required this.title}) : super(key: key);
@@ -19,6 +21,36 @@ class _EditProfileActivityState extends State<EditProfileActivity> {
   TextEditingController _emailController = TextEditingController();
 
   @override
+  Future<void> _saveProfile() async {
+    // Prepare the data you want to send in the PUT request
+    final Map<String, dynamic> updatedData = {
+      "user": _firstNameController.text,
+      "last": _lastNameController.text,
+      "user": _usernameController.text,
+      "email": _emailController.text,
+    };
+
+    try {
+      final response = await http.put(
+        Uri.parse('http://10.141.9.203:3000/api/data/update'),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(updatedData),
+      );
+
+      if (response.statusCode == 200) {
+        // Handle success here if needed
+        print('Profile updated successfully');
+      } else {
+        // Handle errors here
+        print('Failed to update profile: ${response.statusCode}');
+      }
+    } catch (e) {
+      // Handle network errors here
+      print('Error: $e');
+    }
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -69,7 +101,9 @@ class _EditProfileActivityState extends State<EditProfileActivity> {
                             Expanded(
                               child: TextField(
                                 controller: _lastNameController,
-                                decoration: InputDecoration(labelText: "Last Name"),
+                                decoration: const InputDecoration(
+                                  labelText: "Last Name",
+                                ),
                               ),
                             ),
                           ],
@@ -84,8 +118,7 @@ class _EditProfileActivityState extends State<EditProfileActivity> {
                         ),
                         SizedBox(height: 20),
                         ElevatedButton(
-                          onPressed: () {
-                          },
+                          onPressed: _saveProfile,
                           style: ElevatedButton.styleFrom(
                             primary: Color(0xFF8F9E91),
                             side: BorderSide(color: Color(0xFF380E4A)),

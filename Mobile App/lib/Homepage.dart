@@ -34,8 +34,8 @@ class _HomePageState extends State<HomePage> {
   @override
   int avgPace = 32;
   int totalKilometer = 100;
-  int avgKcal = 150;
-  int totalRuns = 120;
+  int heartRate = 150;
+  int totalSteps = 110;
   int avgTime = 2;
   void initState() {
     super.initState();
@@ -44,14 +44,14 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> fetchData() async {
     try {
-      final response = await http.get(Uri.parse('http://192.168.157.105:3000/api/data'));
+      final response = await http.get(Uri.parse('http://192.168.211.105:3000/api/data'));
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         setState(() {
           avgPace = data['avgPace'];
           totalKilometer = data['totalKilometer'];
-          avgKcal = data['avgKcal'];
-          totalRuns = data['totalRuns'];
+          heartRate = data['heartRate'];
+          totalSteps = data['totalSteps'];
           avgTime = data['avgTime'];
         });
       } else {
@@ -86,8 +86,8 @@ class _HomePageState extends State<HomePage> {
           children: [
             HomeTab(
               totalKilometer: totalKilometer,
-              avgKcal: avgKcal,
-              totalRuns: totalRuns,
+              heartRate: heartRate,
+              totalSteps: totalSteps,
               avgTime: avgTime,
               avgPace: avgPace,
             ),
@@ -142,15 +142,15 @@ class _HomePageState extends State<HomePage> {
 
 class HomeTab extends StatelessWidget {
   final int totalKilometer;
-  final int avgKcal;
-  final int totalRuns;
+  final int heartRate;
+  final int totalSteps;
   final int avgTime;
   final int avgPace;
 
   HomeTab({
     required this.totalKilometer,
-    required this.avgKcal,
-    required this.totalRuns,
+    required this.heartRate,
+    required this.totalSteps,
     required this.avgTime,
     required this.avgPace,
   });
@@ -250,7 +250,7 @@ class HomeTab extends StatelessWidget {
                                   Padding(
                                     padding: EdgeInsets.all(8.0),
                                     child: Text(
-                                      '$avgKcal',
+                                      '$heartRate',
                                       style: const TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
@@ -259,7 +259,7 @@ class HomeTab extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    'Avg kcal',
+                                    'Heart Rate',
                                     style: TextStyle(
                                       fontSize: 16,
                                       color: Colors.white,
@@ -279,7 +279,7 @@ class HomeTab extends StatelessWidget {
                                   Padding(
                                     padding: EdgeInsets.all(8.0),
                                     child: Text(
-                                      '$totalRuns',
+                                      '$totalSteps',
                                       style: TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
@@ -288,7 +288,7 @@ class HomeTab extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    'Total Runs',
+                                    'Total Steps',
                                     style: TextStyle(
                                       fontSize: 16,
                                       color: Colors.white,

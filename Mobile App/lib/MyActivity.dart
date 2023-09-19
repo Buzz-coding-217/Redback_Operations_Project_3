@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'Homepage.dart';
+import 'timer.dart';
 
 class MyActivity extends StatefulWidget {
   const MyActivity({Key? key, required this.title}) : super(key: key);
@@ -44,7 +45,14 @@ class _MyActivityState extends State<MyActivity> {
                       Container(
                         width: 320,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TimerPage(title: 'Walking',),
+                              ),
+                            );
+                          },
                           child: const Text("Walking", style: TextStyle(fontSize: 18)),
                         ),
                       ),
@@ -52,7 +60,14 @@ class _MyActivityState extends State<MyActivity> {
                       Container(
                         width: 320,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TimerPage(title: 'Running',),
+                              ),
+                            );
+                          },
                           child: const Text("Running", style: TextStyle(fontSize: 18)),
                         ),
                       ),
@@ -61,7 +76,14 @@ class _MyActivityState extends State<MyActivity> {
                       Container(
                         width: 320,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TimerPage(title: 'Yoga',),
+                            ),
+                          );
+                        },
                           child: const Text("Yoga", style: TextStyle(fontSize: 18)),
                         ),
                       ),
@@ -70,7 +92,14 @@ class _MyActivityState extends State<MyActivity> {
                       Container(
                         width: 320,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TimerPage(title: 'Sports',),
+                              ),
+                            );
+                          },
                           child: const Text("Sports", style: TextStyle(fontSize: 18)),
                         ),
                       ),
@@ -79,7 +108,14 @@ class _MyActivityState extends State<MyActivity> {
                       Container(
                         width: 320,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TimerPage(title: 'Aerobic',),
+                              ),
+                            );
+                          },
                           child: const Text("Aerobic", style: TextStyle(fontSize: 18)),
                         ),
                       ),
@@ -88,7 +124,14 @@ class _MyActivityState extends State<MyActivity> {
                       Container(
                         width: 320,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TimerPage(title: 'Jumba',),
+                              ),
+                            );
+                          },
                           child: const Text("Jumba", style: TextStyle(fontSize: 18)),
                         ),
                       ),

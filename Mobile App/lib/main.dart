@@ -8,6 +8,9 @@ import 'Workout.dart';
 import 'mapsample.dart';
 import 'information.dart';
 import 'contact.dart';
+import 'login.dart';
+import 'signup.dart';
+import 'timer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,7 +39,6 @@ class Setting extends StatefulWidget {
   @override
   State<Setting> createState() => _Setting();
 }
-
 
 
 class _Setting extends State<Setting> {
