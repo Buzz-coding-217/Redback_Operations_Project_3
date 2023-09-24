@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/privacy.dart';
 import 'EditProfile.dart';
 import 'MyActivity.dart';
 import 'main.dart';
@@ -96,6 +97,12 @@ class _MyAccount extends State<MyAccount> {
               width: 300,
               child: ElevatedButton(
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Privacy(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.transparent,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/email.dart';
 import 'Homepage.dart';
 import 'EditProfile.dart';
 import 'Friends.dart';
@@ -11,7 +12,7 @@ import 'contact.dart';
 import 'login.dart';
 import 'signup.dart';
 import 'timer.dart';
-
+import 'privacy.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: HomePage(title: '',),
+      home: HomePage(title: ''),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'main.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'MyActivity.dart';
+import '';
 
 class MyFriendScreen extends StatefulWidget {
   const MyFriendScreen({Key? key, required this.title}) : super(key: key);
